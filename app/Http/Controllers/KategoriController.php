@@ -25,17 +25,17 @@ class KategoriController extends Controller
         kategori::create([
             'nama_kategori'=>$nama_kategori,
         ]);
-        return redirect()->route('admin.kategori.daftar')->with('added','Kutipan telah ditambahkan');
+        return redirect()->route('admin.kategori.daftar')->with('added','Kategori telah ditambahkan');
     }
-    public function update($id, Request $request){
-        $kategori = kategori::findOrFail($id);
+    public function update($id_kategori, Request $request){
+        $kategori = kategori::findOrFail($id_kategori);
         $kategori->nama_kategori = $request->input('nama_kategori');
         $kategori->save();
-        return redirect()->back()->with('updated','Kutipan telah diupdate');
+        return redirect()->back()->with('updated','Kategori telah diupdate');
     }
-    public function delete($id){
-        $kategori = kategori::find($id);
+    public function delete($id_kategori){
+        $kategori = kategori::find($id_kategori);
         $kategori->delete();
-        return redirect()->back()->with('deleted','Kutipan telah dihapus');
+        return redirect()->back()->with('deleted','Kategori telah dihapus');
     }
 }

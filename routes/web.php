@@ -3,9 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BranchesController;
-use App\Http\Controllers\GalleryImagesController;
-use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Authentication;
@@ -34,17 +34,19 @@ Route::group(['prefix'=>'admin'], function(){
     Route::put('/usersetting/usersettingupdate', [UserSettingController::class,'usersettingupdate'])->name('admin.usersettingupdate')->middleware('auth');
     Route::get('/logout', [AuthController::class,'logout'])->name('admin.logout')->middleware('auth');
 
-    //branches management
-    //Route::get('/branches',[BranchesController::class,'daftar'])->name('admin.branches.daftar')->middleware('auth');
-    //Route::post('/branches/add',[BranchesController::class,'save'])->name('admin.branches.save')->middleware('auth');
-    //Route::put('/branches/edit/{id}', [BranchesController::class,'update'])->name('admin.branches.update')->middleware('auth');
-    //Route::delete('/branches/delete/{id}', [BranchesController::class,'delete'])->name('admin.branches.delete')->middleware('auth');
+    
 
-    //images management
-    //Route::get('/gallery_images',[GalleryImagesController::class,'daftar'])->name('admin.gallery_images.daftar')->middleware('auth');
-    //Route::post('/gallery_images/add',[GalleryImagesController::class,'save'])->name('admin.gallery_images.save')->middleware('auth');
-    //Route::put('/gallery_images/edit/{id}',[GalleryImagesController::class,'update'])->name('admin.gallery_images.update')->middleware('auth');
-    //Route::delete('/gallery_images/delete/{id}',[GalleryImagesController::class,'delete'])->name('admin.gallery_images.delete')->middleware('auth');
+    //manajemen kategori
+    Route::get('/kategori',[KategoriController::class,'daftar'])->name('admin.kategori.daftar')->middleware('auth');
+    Route::post('/kategori/add',[KategoriController::class,'save'])->name('admin.kategori.save')->middleware('auth');
+    Route::put('/kategori/edit/{id_kategori}',[KategoriController::class,'update'])->name('admin.kategori.update')->middleware('auth');
+    Route::delete('/kategori/delete/{id_kategori}',[KategoriController::class,'delete'])->name('admin.kategori.delete')->middleware('auth');
+
+    //manajemen kategori
+    Route::get('/status',[StatusController::class,'daftar'])->name('admin.status.daftar')->middleware('auth');
+    Route::post('/status/add',[StatusController::class,'save'])->name('admin.status.save')->middleware('auth');
+    Route::put('/status/edit/{id_status}',[StatusController::class,'update'])->name('admin.status.update')->middleware('auth');
+    Route::delete('/status/delete/{id_status}',[StatusController::class,'delete'])->name('admin.status.delete')->middleware('auth');
 
     //berita
     //Route::get('/berita',[BeritaController::class,'daftar'])->name('admin.berita.daftar')->middleware('auth');
@@ -54,7 +56,7 @@ Route::group(['prefix'=>'admin'], function(){
     //Route::put('/berita/edit/{id}',[BeritaController::class,'update'])->name('admin.berita.update')->middleware('auth');
     //Route::delete('/berita/delete/{id}',[BeritaController::class,'delete'])->name('admin.berita.delete')->middleware('auth');
 
-    //manajemen kategori
+    
     
 });
 /*

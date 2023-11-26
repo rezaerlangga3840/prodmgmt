@@ -10,5 +10,6 @@ class kategori extends Model
 {
     use HasFactory, SoftDeletes;
     public $table = "kategori";
+    protected $primaryKey = 'id_kategori';
     protected $guarded=[];
 }

@@ -10,5 +10,6 @@ class produk extends Model
 {
     use HasFactory, SoftDeletes;
     public $table = "produk";
+    protected $primaryKey = 'id_produk';
     protected $guarded=[];
 }

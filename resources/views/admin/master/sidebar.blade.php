@@ -58,26 +58,41 @@
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-file"></i>
-            <p>Homepage
+            <p>Kategori
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{route('admin.branches.daftar')}}" class="nav-link">
-                <p>Branches</p>
+              <a href="{{route('admin.kategori.daftar')}}" class="nav-link">
+                <p>Kelola Kategori</p>
               </a>
             </li>
+            @foreach(\App\Models\kategori::all() as $kat)
+            <a href="#" class="nav-link"><!--route('admin.kategori.daftar')-->
+              <p>{{$kat->nama_kategori}}</p>
+            </a>
+            @endforeach
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-file"></i>
+            <p>Status
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{route('admin.gallery_images.daftar')}}" class="nav-link">
-                <p>Images</p>
+              <a href="{{route('admin.status.daftar')}}" class="nav-link">
+                <p>Kelola Status</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="{{route('admin.berita.daftar')}}" class="nav-link"><!--route('admin.gallery_images.daftar')-->
-                <p>Berita</p>
-              </a>
-            </li>
+            @foreach(\App\Models\status::all() as $kat)
+            <a href="#" class="nav-link"><!--route('admin.status.daftar')-->
+              <p>{{$kat->nama_status}}</p>
+            </a>
+            @endforeach
           </ul>
         </li>
       </ul>

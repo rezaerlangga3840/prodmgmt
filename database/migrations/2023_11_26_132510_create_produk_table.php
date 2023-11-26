@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id_status')->on('status')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

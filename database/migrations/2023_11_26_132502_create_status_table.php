@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id_status');
             $table->string('nama_status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
