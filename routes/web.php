@@ -48,13 +48,11 @@ Route::group(['prefix'=>'admin'], function(){
     Route::put('/status/edit/{id_status}',[StatusController::class,'update'])->name('admin.status.update')->middleware('auth');
     Route::delete('/status/delete/{id_status}',[StatusController::class,'delete'])->name('admin.status.delete')->middleware('auth');
 
-    //berita
-    //Route::get('/berita',[BeritaController::class,'daftar'])->name('admin.berita.daftar')->middleware('auth');
-    //Route::get('/berita/add',[BeritaController::class,'add'])->name('admin.berita.add')->middleware('auth');
-    //Route::post('/berita/add',[BeritaController::class,'save'])->name('admin.berita.save')->middleware('auth');
-    //Route::get('/berita/edit/{id}',[BeritaController::class,'edit'])->name('admin.berita.edit')->middleware('auth');
-    //Route::put('/berita/edit/{id}',[BeritaController::class,'update'])->name('admin.berita.update')->middleware('auth');
-    //Route::delete('/berita/delete/{id}',[BeritaController::class,'delete'])->name('admin.berita.delete')->middleware('auth');
+    //manajemen produk
+    Route::get('/produk',[ProdukController::class,'daftar'])->name('admin.produk.daftar')->middleware('auth');
+    Route::post('/produk/add',[ProdukController::class,'save'])->name('admin.produk.save')->middleware('auth');
+    Route::put('/produk/edit/{id_produk}',[ProdukController::class,'update'])->name('admin.produk.update')->middleware('auth');
+    Route::delete('/produk/delete/{id_produk}',[ProdukController::class,'delete'])->name('admin.produk.delete')->middleware('auth');
 
     
     

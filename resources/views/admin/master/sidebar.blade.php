@@ -95,6 +95,21 @@
             @endforeach
           </ul>
         </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-file"></i>
+            <p>Produk
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('admin.produk.daftar')}}" class="nav-link">
+                <p>Kelola Produk</p>
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

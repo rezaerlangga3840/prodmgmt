@@ -28,7 +28,7 @@ Status
                 @csrf
                 <div class="form-group">
                   <label for="nama_status">Nama Status</label>
-                  <input type="text" name="nama_status" class="form-control" id="nama_status" placeholder="Misal : Yang bisa mengalahkan dirimu adalah dirimu sendiri">
+                  <input type="text" name="nama_status" class="form-control" id="nama_status" placeholder="Misal : Bisa Dijual">
                 </div>
               </div>
               <div class="modal-footer justify-content-between">
@@ -80,7 +80,7 @@ Status
                             {{method_field('PUT')}}
                             <div class="form-group">
                               <label for="nama_status">Nama Status</label>
-                              <input type="text" name="nama_status" value="{{ $sta->nama_status }}" class="form-control" id="nama_status" placeholder="Misal : Yang bisa mengalahkan dirimu adalah dirimu sendiri">
+                              <input type="text" name="nama_status" value="{{ $sta->nama_status }}" class="form-control" id="nama_status" placeholder="Misal : Bisa Dijual">
                             </div>
                           </div>
                           <div class="modal-footer justify-content-between">
