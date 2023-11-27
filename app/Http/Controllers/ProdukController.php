@@ -16,7 +16,7 @@ use File;
 class ProdukController extends Controller
 {
     public function daftar(){
-        $produk = produk::orderBy('created_at','desc')->get();
+        $produk = produk::join('kategori','kategori.id_kategori','produk.kategori_id')->join('status','status.id_status','produk.status_id')->select('produk.*','nama_kategori','nama_status')->orderBy('created_at','desc')->get();
         $kategori = kategori::orderBy('nama_kategori','asc')->get();
         $status = status::orderBy('nama_status','asc')->get();
         return view('admin.pages.produk.daftar',['produk' => $produk,'kategori' => $kategori,'status' => $status]);

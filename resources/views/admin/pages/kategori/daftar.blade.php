@@ -49,7 +49,6 @@ Kategori
         <h3 class="card-title">Daftar Kategori</h3>
       </div>
       <div class="card-body">
-        <p>Kutipan di bawah ini akan ditampilkan secara acak di atas daftar tim</p>
         <table id="example1" class="table table-bordered table-striped">
           <thead>
           <tr>
@@ -62,11 +61,12 @@ Kategori
               <tr>
                 <td>{{$kat->nama_kategori}}</td>
                 <td>
-                  <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_banner_{{ $kat->id_kategori }}"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_banner_{{ $kat->id_kategori }}"><i class="fa fa-trash"></i></button>
+                  <a href="{{route('admin.kategori.lihatproduk',['id_kategori'=>$kat->id_kategori])}}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                  <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_kategori_{{ $kat->id_kategori }}"><i class="fa fa-edit"></i></button>
+                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_kategori_{{ $kat->id_kategori }}"><i class="fa fa-trash"></i></button>
                   <!--modal edit-->
                   <form action="{{route('admin.kategori.update',['id_kategori'=>$kat->id_kategori])}}" enctype="multipart/form-data" method="post">
-                    <div class="modal fade" id="edit_banner_{{ $kat->id_kategori }}">
+                    <div class="modal fade" id="edit_kategori_{{ $kat->id_kategori }}">
                       <div class="modal-dialog">
                         <div class="modal-content bg-primary">
                           <div class="modal-header">
@@ -93,7 +93,7 @@ Kategori
                   </form>
                   <!--modal delete-->
                   <form method="POST" action="{{route('admin.kategori.delete',['id_kategori'=>$kat->id_kategori])}}">
-                    <div class="modal fade" id="hapus_banner_{{$kat->id_kategori}}">
+                    <div class="modal fade" id="hapus_kategori_{{$kat->id_kategori}}">
                       <div class="modal-dialog">
                         <div class="modal-content bg-danger">
                           <div class="modal-header">

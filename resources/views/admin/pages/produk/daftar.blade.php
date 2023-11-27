@@ -69,11 +69,13 @@ Produk
         <h3 class="card-title">Daftar Produk</h3>
       </div>
       <div class="card-body">
-        <p>Kutipan di bawah ini akan ditampilkan secara acak di atas daftar tim</p>
         <table id="example1" class="table table-bordered table-striped">
           <thead>
           <tr>
             <th>Nama Produk</th>
+            <th>Harga</th>
+            <th>Kategori</th>
+            <th>Status</th>
             <th>Opsi</th>
           </tr>
           </thead>
@@ -81,12 +83,15 @@ Produk
             @foreach($produk as $prod)
               <tr>
                 <td>{{$prod->nama_produk}}</td>
+                <td>{{$prod->harga}}</td>
+                <td>{{$prod->nama_kategori}}</td>
+                <td>{{$prod->nama_status}}</td>
                 <td>
-                  <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_banner_{{ $prod->id_produk }}"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_banner_{{ $prod->id_produk }}"><i class="fa fa-trash"></i></button>
+                  <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_produk_{{ $prod->id_produk }}"><i class="fa fa-edit"></i></button>
+                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_produk_{{ $prod->id_produk }}"><i class="fa fa-trash"></i></button>
                   <!--modal edit-->
                   <form action="{{route('admin.produk.update',['id_produk'=>$prod->id_produk])}}" enctype="multipart/form-data" method="post">
-                    <div class="modal fade" id="edit_banner_{{ $prod->id_produk }}">
+                    <div class="modal fade" id="edit_produk_{{ $prod->id_produk }}">
                       <div class="modal-dialog">
                         <div class="modal-content bg-primary">
                           <div class="modal-header">
@@ -110,7 +115,7 @@ Produk
                               <label for="kategori_id">Kategori</label>
                               <select name="kategori_id" class="form-control" id="kategori_id">
                                 @foreach($kategori as $kat)
-                                <option {{ ($prod->kategori_id== $kat->id_kategori ? "selected='selected'" : "") }} value="{{$kat->id_kategori}}">{{$kat->nama_kategori}}</option>
+                                <option {{ ($prod->kategori_id==$kat->id_kategori?"selected='selected'":"") }} value="{{$kat->id_kategori}}">{{$kat->nama_kategori}}</option>
                                 @endforeach
                               </select>
                             </div>
@@ -118,7 +123,7 @@ Produk
                               <label for="status_id">Status</label>
                               <select name="status_id" class="form-control" id="status_id">
                                 @foreach($status as $sta)
-                                <option {{ ($prod->status_id== $kat->id_status ? "selected='selected'" : "") }} value="{{$sta->id_status}}">{{$sta->nama_status}}</option>
+                                <option {{ ($prod->status_id==$sta->id_status?"selected='selected'":"") }} value="{{$sta->id_status}}">{{$sta->nama_status}}</option>
                                 @endforeach
                               </select>
                             </div>
@@ -133,7 +138,7 @@ Produk
                   </form>
                   <!--modal delete-->
                   <form method="POST" action="{{route('admin.produk.delete',['id_produk'=>$prod->id_produk])}}">
-                    <div class="modal fade" id="hapus_banner_{{$prod->id_produk}}">
+                    <div class="modal fade" id="hapus_produk_{{$prod->id_produk}}">
                       <div class="modal-dialog">
                         <div class="modal-content bg-danger">
                           <div class="modal-header">

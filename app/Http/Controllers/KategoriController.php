@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\kategori;
+use App\Models\status;
+use App\Models\produk;
 use Carbon\carbon;
 
 use Hash;
@@ -37,5 +39,10 @@ class KategoriController extends Controller
         $kategori = kategori::find($id_kategori);
         $kategori->delete();
         return redirect()->back()->with('deleted','Kategori telah dihapus');
+    }
+    public function lihatproduk($id_kategori){
+        $kategori = kategori::findOrFail($id_kategori);
+        $produk = produk::join('kategori','kategori.id_kategori','produk.kategori_id')->join('status','status.id_status','produk.status_id')->select('produk.*','nama_kategori','nama_status')->where('kategori_id',$id_kategori)->orderBy('created_at','desc')->get();
+        return view('admin.pages.kategori.daftarproduk',['kategori'=>$kategori,'produk'=>$produk]);
     }
 }

@@ -34,19 +34,21 @@ Route::group(['prefix'=>'admin'], function(){
     Route::put('/usersetting/usersettingupdate', [UserSettingController::class,'usersettingupdate'])->name('admin.usersettingupdate')->middleware('auth');
     Route::get('/logout', [AuthController::class,'logout'])->name('admin.logout')->middleware('auth');
 
-    
-
     //manajemen kategori
     Route::get('/kategori',[KategoriController::class,'daftar'])->name('admin.kategori.daftar')->middleware('auth');
     Route::post('/kategori/add',[KategoriController::class,'save'])->name('admin.kategori.save')->middleware('auth');
     Route::put('/kategori/edit/{id_kategori}',[KategoriController::class,'update'])->name('admin.kategori.update')->middleware('auth');
     Route::delete('/kategori/delete/{id_kategori}',[KategoriController::class,'delete'])->name('admin.kategori.delete')->middleware('auth');
+    //lihat produk berdasarkan kategori
+    Route::get('/kategori/lihatproduk/{id_kategori}',[KategoriController::class,'lihatproduk'])->name('admin.kategori.lihatproduk')->middleware('auth');
 
     //manajemen kategori
     Route::get('/status',[StatusController::class,'daftar'])->name('admin.status.daftar')->middleware('auth');
     Route::post('/status/add',[StatusController::class,'save'])->name('admin.status.save')->middleware('auth');
     Route::put('/status/edit/{id_status}',[StatusController::class,'update'])->name('admin.status.update')->middleware('auth');
     Route::delete('/status/delete/{id_status}',[StatusController::class,'delete'])->name('admin.status.delete')->middleware('auth');
+    //lihat produk berdasarkan status
+    Route::get('/status/lihatproduk/{id_status}',[StatusController::class,'lihatproduk'])->name('admin.status.lihatproduk')->middleware('auth');
 
     //manajemen produk
     Route::get('/produk',[ProdukController::class,'daftar'])->name('admin.produk.daftar')->middleware('auth');

@@ -49,7 +49,6 @@ Status
         <h3 class="card-title">Daftar Status</h3>
       </div>
       <div class="card-body">
-        <p>Kutipan di bawah ini akan ditampilkan secara acak di atas daftar tim</p>
         <table id="example1" class="table table-bordered table-striped">
           <thead>
           <tr>
@@ -62,11 +61,12 @@ Status
               <tr>
                 <td>{{$sta->nama_status}}</td>
                 <td>
-                  <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_banner_{{ $sta->id_status }}"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_banner_{{ $sta->id_status }}"><i class="fa fa-trash"></i></button>
+                  <a href="{{route('admin.status.lihatproduk',['id_status'=>$sta->id_status])}}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                  <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_status_{{ $sta->id_status }}"><i class="fa fa-edit"></i></button>
+                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_status_{{ $sta->id_status }}"><i class="fa fa-trash"></i></button>
                   <!--modal edit-->
                   <form action="{{route('admin.status.update',['id_status'=>$sta->id_status])}}" enctype="multipart/form-data" method="post">
-                    <div class="modal fade" id="edit_banner_{{ $sta->id_status }}">
+                    <div class="modal fade" id="edit_status_{{ $sta->id_status }}">
                       <div class="modal-dialog">
                         <div class="modal-content bg-primary">
                           <div class="modal-header">
@@ -93,7 +93,7 @@ Status
                   </form>
                   <!--modal delete-->
                   <form method="POST" action="{{route('admin.status.delete',['id_status'=>$sta->id_status])}}">
-                    <div class="modal fade" id="hapus_banner_{{$sta->id_status}}">
+                    <div class="modal fade" id="hapus_status_{{$sta->id_status}}">
                       <div class="modal-dialog">
                         <div class="modal-content bg-danger">
                           <div class="modal-header">

@@ -68,11 +68,6 @@
                 <p>Kelola Kategori</p>
               </a>
             </li>
-            @foreach(\App\Models\kategori::all() as $kat)
-            <a href="#" class="nav-link"><!--route('admin.kategori.daftar')-->
-              <p>{{$kat->nama_kategori}}</p>
-            </a>
-            @endforeach
           </ul>
         </li>
         <li class="nav-item">
@@ -88,11 +83,6 @@
                 <p>Kelola Status</p>
               </a>
             </li>
-            @foreach(\App\Models\status::all() as $kat)
-            <a href="#" class="nav-link"><!--route('admin.status.daftar')-->
-              <p>{{$kat->nama_status}}</p>
-            </a>
-            @endforeach
           </ul>
         </li>
         <li class="nav-item">
