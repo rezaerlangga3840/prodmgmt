@@ -42,7 +42,7 @@ class StatusController extends Controller
     }
     public function lihatproduk($id_status){
         $status = status::findOrFail($id_status);
-        $produk = produk::join('kategori','kategori.id_kategori','produk.kategori_id')->join('status','status.id_status','produk.status_id')->select('produk.*','nama_kategori','nama_status')->where('status_id',$id_status)->orderBy('created_at','desc')->get();
+        $produk = produk::join('kategori','kategori.id_kategori','produk.kategori_id')->join('status','status.id_status','produk.status_id')->select('produk.*','nama_kategori','nama_status')->where('status_id',$id_status)->orderBy('created_at','asc')->get();
         return view('admin.pages.status.daftarproduk',['status'=>$status,'produk'=>$produk]);
     }
 }

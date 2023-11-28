@@ -42,7 +42,7 @@ class KategoriController extends Controller
     }
     public function lihatproduk($id_kategori){
         $kategori = kategori::findOrFail($id_kategori);
-        $produk = produk::join('kategori','kategori.id_kategori','produk.kategori_id')->join('status','status.id_status','produk.status_id')->select('produk.*','nama_kategori','nama_status')->where('kategori_id',$id_kategori)->orderBy('created_at','desc')->get();
+        $produk = produk::join('kategori','kategori.id_kategori','produk.kategori_id')->join('status','status.id_status','produk.status_id')->select('produk.*','nama_kategori','nama_status')->where('kategori_id',$id_kategori)->orderBy('created_at','asc')->get();
         return view('admin.pages.kategori.daftarproduk',['kategori'=>$kategori,'produk'=>$produk]);
     }
 }
